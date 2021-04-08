@@ -1,0 +1,14 @@
+.header {
+  background: whitesmoke;
+  color: #264e70;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  padding: 0.5rem;
+  box-shadow: 2px 2px 1px rgb(187, 187, 187);
+}
+.header a {
+  color: #264e70;
+  text-decoration: none;
+}

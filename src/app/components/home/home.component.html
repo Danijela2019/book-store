@@ -1,0 +1,12 @@
+<div class="home-section">
+  <div class="home-background">
+    <h1 class="home-headline">{{ "The best IT book store" | uppercase }}</h1>
+    <p class="home-text">All newest IT books in one place</p>
+  </div>
+</div>
+<div class="home-card-container">
+  <h1 class="home-card-title">Best Sellers</h1>
+  <ul class="home-card-list-container">
+    <app-card *ngFor="let book of books" [book]="book"> </app-card>
+  </ul>
+</div>

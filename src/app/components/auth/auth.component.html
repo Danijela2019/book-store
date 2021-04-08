@@ -1,0 +1,73 @@
+<div class="background">
+  <div class="login-container">
+    <section class="login-form__section">
+      <h1 class="login-title">{{ isLoginMode ? "Login" : "Register" }}</h1>
+      <form
+        (ngSubmit)="onSubmit(logForm)"
+        class="login-form"
+        autocomplete="off"
+        #logForm="ngForm"
+      >
+        <p class="invalid" *ngIf="!email.valid && email.touched">
+          Please enter a valid email
+        </p>
+        <input
+          class="login-field__inputname"
+          name="email"
+          placeholder="User email"
+          ngModel
+          required
+          email
+          #email="ngModel"
+        />
+
+        <p class="invalid" *ngIf="!password.valid && password.touched">
+          Please enter a password with more than 6 characters
+        </p>
+        <input
+          class="login-field__inputpassword"
+          id="login-input-password"
+          type="password"
+          name="password"
+          placeholder="Password"
+          autocomplete="off"
+          ngModel
+          required
+          minlength="6"
+          #password="ngModel"
+        />
+
+        <button
+          type="submit"
+          class="login-field__button btn"
+          id="submit-form"
+          [disabled]="!logForm.valid"
+        >
+          Submit
+        </button>
+      </form>
+    </section>
+    <aside class="cancel-field">
+      <button
+        type="button"
+        class="cancel-field__button btn"
+        id="cancel-form"
+        (click)="onCancel(logForm)"
+      >
+        Cancel
+      </button>
+      <p class="signup">
+        {{
+          isLoginMode ? "Don't have an account?" : "Already have an account?"
+        }}
+        <button
+          type="button"
+          (click)="onSwitchLoginMode(logForm)"
+          class="switch-btn"
+        >
+          {{ isLoginMode ? "Signup" : "SignIn" }}
+        </button>
+      </p>
+    </aside>
+  </div>
+</div>
