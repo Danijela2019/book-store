@@ -1,6 +1,18 @@
 <ul class="wishlist-container">
-  <app-wish-list-item
-    *ngFor="let booksWishItem of booksWishList"
-    [wishlistItem]="booksWishItem"
-  ></app-wish-list-item>
+  <div *ngIf="booksWishList.length === 0; else list" class="nolist-container">
+    <div class="nolist-image-container">
+      <img
+        class="nolist-image"
+        src=" ../../../../../assets/images/book_stack.png"
+        alt="stack of books"
+      />
+    </div>
+    <h1 class="nolist-text">There aren't any books in the wishlist</h1>
+  </div>
+  <ng-template #list>
+    <app-wish-list-item
+      *ngFor="let booksWishItem of booksWishList"
+      [wishlistItem]="booksWishItem"
+    ></app-wish-list-item>
+  </ng-template>
 </ul>

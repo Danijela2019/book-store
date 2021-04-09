@@ -14,6 +14,5 @@ export class WishListComponent implements OnInit {
 
   ngOnInit(): void {
     this.booksWishList = this.bookService.getBooksWishlist();
-    console.log('What we get in booksWishList', this.booksWishList);
   }
 }
