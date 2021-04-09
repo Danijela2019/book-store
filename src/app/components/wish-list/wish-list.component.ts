@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/Book';
-import { BookService } from 'src/app/services/book.service';
+import { WishlistService } from 'src/app/services/wishlist.service';
 
 @Component({
   selector: 'app-wish-list',
@@ -10,9 +10,16 @@ import { BookService } from 'src/app/services/book.service';
 export class WishListComponent implements OnInit {
   booksWishList: Book[] = [];
 
-  constructor(private bookService: BookService) {}
+  constructor(private wishlistService: WishlistService) {}
 
   ngOnInit(): void {
-    this.booksWishList = this.bookService.getBooksWishlist();
+    this.booksWishList = this.wishlistService.getBooksWishlist();
+  }
+
+  removeBookFromArray(book: Book) {
+    this.booksWishList = this.booksWishList.filter(
+      (item) => item.isbn13 !== book.isbn13
+    );
+    this.wishlistService.removeBooksFromWishList(book);
   }
 }

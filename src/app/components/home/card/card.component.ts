@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/Book';
-import { BookService } from 'src/app/services/book.service';
+import { WishlistService } from 'src/app/services/wishlist.service';
 
 @Component({
   selector: 'app-card',
@@ -10,14 +10,12 @@ import { BookService } from 'src/app/services/book.service';
 export class CardComponent implements OnInit {
   @Input() book: Book;
   addedToFavorites: boolean = false;
-  constructor(private bookService: BookService) {}
+  constructor(private wishlistService: WishlistService) {}
 
   ngOnInit(): void {}
 
   onHeartClicked(clickedBook: Book) {
-    console.log('I was clicked');
-    console.log('Clicked book', clickedBook);
-    this.bookService.addBooksToWishList(clickedBook);
+    this.wishlistService.addBooksToWishList(clickedBook);
     this.addedToFavorites = true;
   }
 }

@@ -9,6 +9,11 @@
     <a href="{{ wishlistItem.url }}" target="_blank" rel="noopener noreferrer">
       <button class="wishlist-button-store btn">Go to store for details</button>
     </a>
-    <button class="wishlist-button-remove btn">Remove from wishlist</button>
+    <button
+      (click)="onRemoveBook(wishlistItem)"
+      class="wishlist-button-remove btn"
+    >
+      Remove from wishlist
+    </button>
   </div>
 </div>
