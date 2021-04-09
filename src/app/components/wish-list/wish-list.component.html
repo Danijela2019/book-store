@@ -11,6 +11,7 @@
   </div>
   <ng-template #list>
     <app-wish-list-item
+      (deleteBook)="removeBookFromArray($event)"
       *ngFor="let booksWishItem of booksWishList"
       [wishlistItem]="booksWishItem"
     ></app-wish-list-item>
