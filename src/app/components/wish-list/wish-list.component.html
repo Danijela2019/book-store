@@ -1,1 +1,6 @@
-<p>This will be the wish list</p>
+<ul class="wishlist-container">
+  <app-wish-list-item
+    *ngFor="let booksWishItem of booksWishList"
+    [wishlistItem]="booksWishItem"
+  ></app-wish-list-item>
+</ul>
