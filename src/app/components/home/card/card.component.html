@@ -3,4 +3,11 @@
     <img src="{{ book.image }}" alt="{{ book.title }}" class="card-image" />
   </div>
   <p class="card-book-title">{{ book.title }}</p>
+  <button
+    class="card-button"
+    (click)="onHeartClicked(book)"
+    [disabled]="addedToFavorites"
+  >
+    <mat-icon>favorite</mat-icon>
+  </button>
 </li>

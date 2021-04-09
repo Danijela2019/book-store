@@ -1,0 +1,20 @@
+.footer-container {
+  min-height: 30vh;
+  background-color: #1a1a1a;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-container {
+  display: flex;
+  flex-direction: column;
+}
+.logo-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 1rem;
+}
+.footer-year {
+  margin-top: 1.5rem;
+}

@@ -1,10 +1,12 @@
 .card-book-title {
   margin-bottom: 1rem;
+  padding: 0.5rem;
 }
 .box {
   list-style-type: none;
   position: relative;
   width: 200px;
+  height: 320px;
   margin: 1rem auto;
   display: flex;
   flex-direction: column;
@@ -47,4 +49,13 @@
 .card-image {
   width: 100%;
   height: auto;
+}
+.card-button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
