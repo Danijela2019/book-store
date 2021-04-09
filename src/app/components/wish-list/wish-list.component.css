@@ -4,3 +4,37 @@
   display: flex;
   flex-direction: column;
 }
+
+.nolist-container {
+  margin: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.nolist-image {
+  width: 60%;
+  height: auto;
+}
+.nolist-text {
+  text-align: center;
+  margin: 1rem;
+  color: #264e70;
+  font-size: 1.5rem;
+}
+.nolist-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (min-width: 767px) {
+  .nolist-container {
+    flex-direction: row;
+  }
+  .nolist-image {
+    width: 30%;
+  }
+  .nolist-text {
+    font-size: 2rem;
+  }
+}

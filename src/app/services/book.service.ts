@@ -22,9 +22,7 @@ export class BookService {
   }
 
   addBooksToWishList(book: Book) {
-    console.log('Inside bookService', book);
     this.booksWishlist.push(book);
     this.booksWishlistUpdated.next(this.booksWishlist.slice());
-    console.log('the arrayinside bookService', this.booksWishlist);
   }
 }

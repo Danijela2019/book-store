@@ -1,5 +1,9 @@
 <div class="footer-container">
-  <img src="../../../../assets/images/logo.png" alt="company logo" />
+  <img
+    class="footer-image"
+    src="../../../../assets/images/logo.png"
+    alt="company logo"
+  />
   <div class="text-container">
     <div class="logo-container">
       <a [href]="githubUrl" target="_blank" rel="noopener noreferrer">
@@ -16,6 +20,17 @@
         />
       </a>
     </div>
+    <p>
+      Data provided by:
+      <a
+        class="bookstore-achor"
+        [href]="booksApiUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        IT Bookstore API</a
+      >
+    </p>
     <p class="footer-year">Tecnico {{ getFullYear() }} | All rights reserved</p>
   </div>
 </div>
