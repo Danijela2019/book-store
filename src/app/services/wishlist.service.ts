@@ -35,11 +35,9 @@ export class WishlistService {
   }
 
   addBooksToWishList(book: Book) {
-    this.http
-      .post(
-        'https://bookstore-65f65-default-rtdb.firebaseio.com/wishlist.json',
-        book
-      )
-      .subscribe((res) => console.log(res));
+    return this.http.post<{ name: string }>(
+      'https://bookstore-65f65-default-rtdb.firebaseio.com/wishlist.json',
+      book
+    );
   }
 }
