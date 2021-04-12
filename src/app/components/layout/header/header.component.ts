@@ -8,11 +8,7 @@ import { WishlistService } from 'src/app/services/wishlist.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private wishListService: WishlistService) {}
+  constructor() {}
 
   ngOnInit(): void {}
-
-  getWishListLength() {
-    return this.wishListService.getBooksWishlist().length.toString();
-  }
 }

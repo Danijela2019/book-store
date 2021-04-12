@@ -20,7 +20,6 @@
 img {
   width: 90%;
   height: auto;
-  border: 2px solid #fdebd3;
   margin: 0.5rem auto;
 }
 .wishlist-button-container {
@@ -61,7 +60,7 @@ img {
     display: block;
   }
   img {
-    width: 40%;
+    width: 140px;
   }
   .wishlist-button-container {
     width: 160px;
