@@ -40,4 +40,11 @@ export class WishlistService {
       book
     );
   }
+  removeBooksFromWishList(book: Book) {
+    this.http
+      .delete<Book>(
+        `https://bookstore-65f65-default-rtdb.firebaseio.com/wishlist/${book.id}.json`
+      )
+      .subscribe((_res) => console.log(_res));
+  }
 }
