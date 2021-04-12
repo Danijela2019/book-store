@@ -9,13 +9,16 @@ import { WishlistService } from 'src/app/services/wishlist.service';
 })
 export class WishListComponent implements OnInit {
   booksWishList: Book[] = [];
+  isLoading: boolean = false;
 
   constructor(private wishlistService: WishlistService) {}
 
   ngOnInit(): void {
-    this.wishlistService
-      .fetchWishLit()
-      .subscribe((res) => (this.booksWishList = res));
+    this.isLoading = true;
+    this.wishlistService.fetchWishLit().subscribe((res) => {
+      this.isLoading = false;
+      this.booksWishList = res;
+    });
   }
 
   removeBookFromArray(book: Book) {

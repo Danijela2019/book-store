@@ -1,5 +1,8 @@
 <ul class="wishlist-container">
-  <div *ngIf="booksWishList.length === 0; else list" class="nolist-container">
+  <div
+    *ngIf="booksWishList.length === 0 && !isLoading; else list"
+    class="nolist-container"
+  >
     <div class="nolist-image-container">
       <img
         class="nolist-image"
@@ -16,4 +19,5 @@
       [wishlistItem]="booksWishItem"
     ></app-wish-list-item>
   </ng-template>
+  <div *ngIf="isLoading" class="loader">Loading...</div>
 </ul>
