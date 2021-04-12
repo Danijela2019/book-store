@@ -10,12 +10,15 @@ import { WishlistService } from 'src/app/services/wishlist.service';
 export class CardComponent implements OnInit {
   @Input() book: Book;
   addedToFavorites: boolean = false;
+  text: string;
   constructor(private wishlistService: WishlistService) {}
 
   ngOnInit(): void {}
 
   onHeartClicked(clickedBook: Book) {
-    this.wishlistService.addBooksToWishList(clickedBook);
+    this.wishlistService
+      .addBooksToWishList(clickedBook)
+      .subscribe((_res) => (this.text = 'Successfully added'));
     this.addedToFavorites = true;
   }
 }
