@@ -1,31 +1,45 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+//import { Subject } from 'rxjs';
 import { Book } from '../models/Book';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WishlistService {
   private booksWishlist: Book[] = [];
-  booksWishlistUpdated = new Subject<Book[]>();
+
   constructor(private http: HttpClient) {}
 
   getBooksWishlist() {
     return this.booksWishlist.slice();
   }
 
+  fetchWishLit() {
+    return this.http
+      .get<Book[]>(
+        'https://bookstore-65f65-default-rtdb.firebaseio.com/wishlist.json'
+      )
+      .pipe(
+        map((responseData) => {
+          const booksArray = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              booksArray.push({ ...responseData[key], id: key });
+            }
+          }
+          return booksArray;
+        })
+      );
+  }
+
   addBooksToWishList(book: Book) {
-    this.booksWishlist.push(book);
-    this.booksWishlistUpdated.next(this.booksWishlist.slice());
     this.http
-      .put<Book>(
-        "'https://bookstore-383c3-default-rtdb.firebaseio.com/books.json",
+      .post(
+        'https://bookstore-65f65-default-rtdb.firebaseio.com/wishlist.json',
         book
       )
-      .subscribe((res) => console.log('response data', res));
-  }
-  removeBooksFromWishList(book: Book) {
-    console.log('The book we need to remove', book);
+      .subscribe((res) => console.log(res));
   }
 }

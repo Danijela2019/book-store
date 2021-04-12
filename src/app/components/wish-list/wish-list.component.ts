@@ -13,13 +13,15 @@ export class WishListComponent implements OnInit {
   constructor(private wishlistService: WishlistService) {}
 
   ngOnInit(): void {
-    this.booksWishList = this.wishlistService.getBooksWishlist();
+    this.wishlistService
+      .fetchWishLit()
+      .subscribe((res) => (this.booksWishList = res));
   }
 
   removeBookFromArray(book: Book) {
-    this.booksWishList = this.booksWishList.filter(
+    /*this.booksWishList = this.booksWishList.filter(
       (item) => item.isbn13 !== book.isbn13
     );
-    this.wishlistService.removeBooksFromWishList(book);
+    this.wishlistService.removeBooksFromWishList(book);*/
   }
 }

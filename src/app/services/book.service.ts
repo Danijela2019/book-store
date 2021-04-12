@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/Book';
-import { HttpClient } from '@angular/common/http';
+import { BESTSELLERS } from '../data/Bestsellers';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
-  constructor(private http: HttpClient) {}
+  bestsellersArray: Book[];
+  constructor() {}
 
   getAllBooks() {
-    return this.http.get<Book[]>(
-      'https://bookstore-383c3-default-rtdb.firebaseio.com/books.json'
-    );
+    return (this.bestsellersArray = BESTSELLERS);
   }
 }
