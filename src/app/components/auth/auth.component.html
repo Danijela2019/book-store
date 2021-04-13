@@ -1,5 +1,7 @@
 <div class="background">
-  <div class="login-container">
+  <div *ngIf="isLoading" class="loader">Loading...</div>
+  <h3 class="error-text" *ngIf="error">{{ error }}</h3>
+  <div *ngIf="!isLoading" class="login-container">
     <section class="login-form__section">
       <h1 class="login-title">{{ isLoginMode ? "Login" : "Register" }}</h1>
       <form
