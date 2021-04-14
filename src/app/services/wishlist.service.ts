@@ -1,37 +1,36 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-//import { Subject } from 'rxjs';
 import { Book } from '../models/Book';
-import { map } from 'rxjs/operators';
+import { exhaustMap, map, take } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WishlistService {
-  private booksWishlist: Book[] = [];
-
-  constructor(private http: HttpClient) {}
-
-  getBooksWishlist() {
-    return this.booksWishlist.slice();
-  }
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   fetchWishLit() {
-    return this.http
-      .get<Book[]>(
-        'https://bookstore-65f65-default-rtdb.firebaseio.com/wishlist.json'
-      )
-      .pipe(
-        map((responseData) => {
-          const booksArray = [];
-          for (const key in responseData) {
-            if (responseData.hasOwnProperty(key)) {
-              booksArray.push({ ...responseData[key], id: key });
-            }
+    return this.authService.user.pipe(
+      take(1),
+      exhaustMap((user) => {
+        return this.http.get<Book[]>(
+          'https://bookstore-65f65-default-rtdb.firebaseio.com/wishlist.json',
+          {
+            params: new HttpParams().set('auth', user.getToken()),
           }
-          return booksArray;
-        })
-      );
+        );
+      }),
+      map((responseData) => {
+        const booksArray = [];
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            booksArray.push({ ...responseData[key], id: key });
+          }
+        }
+        return booksArray;
+      })
+    );
   }
 
   addBooksToWishList(book: Book) {

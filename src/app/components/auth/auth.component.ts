@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router, RouteReuseStrategy } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthData } from 'src/app/models/AuthData';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class AuthComponent implements OnInit {
   isLoginMode = true;
   isLoading = false;
   error: string = null;
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -32,7 +32,7 @@ export class AuthComponent implements OnInit {
     const password = form.value.password;
     this.isLoading = true;
 
-    let authObservable: Observable<AuthData>;
+    let authObservable: Observable<any>;
 
     if (this.isLoginMode) {
       authObservable = this.authService.login(email, password);
@@ -40,9 +40,9 @@ export class AuthComponent implements OnInit {
       authObservable = this.authService.signUp(email, password);
     }
     authObservable.subscribe(
-      (res) => {
-        console.log('Response data', res);
+      (_res) => {
         this.isLoading = false;
+        this.router.navigate(['/wishlist']);
       },
       (errorMsg) => {
         this.error = errorMsg;
