@@ -1,4 +1,4 @@
-# BookstoreApp
+# Book-store
 
 A book store app generated with Angular and Firebase for data storage. Book data provided by the [IT Book store API](https://api.itbook.store/).
 

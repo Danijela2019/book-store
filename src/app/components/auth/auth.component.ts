@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router, RouteReuseStrategy } from '@angular/router';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
