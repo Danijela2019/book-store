@@ -7,7 +7,7 @@
   <button
     class="card-button"
     (click)="onHeartClicked(book)"
-    [disabled]="addedToFavorites"
+    [disabled]="addedToFavorites || !isAuthenticated"
   >
     <mat-icon>favorite</mat-icon>
   </button>
