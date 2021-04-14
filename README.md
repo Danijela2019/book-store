@@ -1,15 +1,16 @@
 # Book-store
 
-A book store app generated with Angular and Firebase for data storage. Book data provided by the [IT Book store API](https://api.itbook.store/).
+A book store app generated with Angular and Firebase for data storage. Book data provided by the [IT Book store API](https://api.itbook.store/). All available books are shown on page load. Only logged in or registered users can add and remove books form the wishlist. 
 
 ![Hero page](hero_page.png)
 
 ## Functionalities
 
 - **all bestselling books are displayed for the user**
-- **the user can add books to a wishlist**
-- **the user can remove books from a wishlist**
-- **the user must login/signup to view the wishlist**
+- - **the user must login/signup to view the wishlist**
+- **the user can add books to the wishlist**
+- **the user can remove books from the wishlist**
+
 
 ## Would you like to try it out
 
