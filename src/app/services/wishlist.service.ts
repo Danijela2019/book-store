@@ -34,15 +34,32 @@ export class WishlistService {
   }
 
   addBooksToWishList(book: Book) {
-    return this.http.post<{ name: string }>(
-      'https://bookstore-65f65-default-rtdb.firebaseio.com/wishlist.json',
-      book
+    return this.authService.user.pipe(
+      take(1),
+      exhaustMap((user) => {
+        return this.http.post<{ name: string }>(
+          'https://bookstore-65f65-default-rtdb.firebaseio.com/wishlist.json',
+          book,
+          {
+            params: new HttpParams().set('auth', user.getToken()),
+          }
+        );
+      })
     );
   }
+
   removeBooksFromWishList(book: Book) {
-    this.http
-      .delete<Book>(
-        `https://bookstore-65f65-default-rtdb.firebaseio.com/wishlist/${book.id}.json`
+    return this.authService.user
+      .pipe(
+        take(1),
+        exhaustMap((user) => {
+          return this.http.delete<Book>(
+            `https://bookstore-65f65-default-rtdb.firebaseio.com/wishlist/${book.id}.json`,
+            {
+              params: new HttpParams().set('auth', user.getToken()),
+            }
+          );
+        })
       )
       .subscribe((_res) => console.log(_res));
   }
