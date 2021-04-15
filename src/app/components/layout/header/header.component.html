@@ -1,9 +1,20 @@
 <header class="header">
   <h1>Technico</h1>
   <nav>
-    <a routerLink="/">Home</a>
-    <a *ngIf="isAuthenticated" (click)="onLogout()">Logout</a>
-    <a *ngIf="!isAuthenticated" routerLink="/auth">Login</a>
-    <a *ngIf="isAuthenticated" routerLink="/wishlist">Wish list</a>
+    <a
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLink="/"
+      >Home</a
+    >
+    <a *ngIf="isAuthenticated" routerLinkActive="active" (click)="onLogout()"
+      >Logout</a
+    >
+    <a *ngIf="!isAuthenticated" routerLinkActive="active" routerLink="/auth"
+      >Login</a
+    >
+    <a *ngIf="isAuthenticated" routerLinkActive="active" routerLink="/wishlist"
+      >Wish list</a
+    >
   </nav>
 </header>
