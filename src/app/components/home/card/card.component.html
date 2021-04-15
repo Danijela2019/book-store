@@ -5,9 +5,10 @@
   <p class="card-book-title">{{ book.title }}</p>
   <p class="success">{{ text }}</p>
   <button
+    *ngIf="isAuthenticated"
     class="card-button"
     (click)="onHeartClicked(book)"
-    [disabled]="addedToFavorites || !isAuthenticated"
+    [disabled]="addedToFavorites"
   >
     <mat-icon>favorite</mat-icon>
   </button>
