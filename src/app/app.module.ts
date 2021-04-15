@@ -25,13 +25,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
     WishListItemComponent,
     FooterComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    MatIconModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MatIconModule],
   providers: [],
   bootstrap: [AppComponent],
 })

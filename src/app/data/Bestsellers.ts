@@ -91,8 +91,7 @@ export const BESTSELLERS: Book[] = [
   },
   {
     title: '3D Game Development with LWJGL 3',
-    subtitle:
-      'Learn the main concepts involved in writing 3D games using the Lighweight Java Gaming Library',
+    subtitle: 'Learn the main concepts involved in writing 3D games using the Lighweight Java Gaming Library',
     isbn13: '1001601302020',
     price: '$30.00',
     image: 'https://itbook.store/img/books/1001601302020.png',
@@ -156,8 +155,7 @@ export const BESTSELLERS: Book[] = [
   },
   {
     title: 'Machine Learning Yearning',
-    subtitle:
-      'Technical Strategy for AI Engineers, In the Era of Deep Learning',
+    subtitle: 'Technical Strategy for AI Engineers, In the Era of Deep Learning',
     isbn13: '1001590486081',
     price: '$33.00',
     image: 'https://itbook.store/img/books/1001590486081.png',

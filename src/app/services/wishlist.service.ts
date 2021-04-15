@@ -15,12 +15,9 @@ export class WishlistService {
     return this.authService.user.pipe(
       take(1),
       exhaustMap((user) => {
-        return this.http.get<Book[]>(
-          'https://bookstore-65f65-default-rtdb.firebaseio.com/wishlist.json',
-          {
-            params: new HttpParams().set('auth', user.getToken()),
-          }
-        );
+        return this.http.get<Book[]>('https://bookstore-65f65-default-rtdb.firebaseio.com/wishlist.json', {
+          params: new HttpParams().set('auth', user.getToken()),
+        });
       }),
       map((responseData) => {
         const booksArray = [];

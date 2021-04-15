@@ -84,7 +84,7 @@ input.ng-invalid.ng-touched {
   height: 90vh;
   position: relative;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../../../assets/images/login_cover.jpg") no-repeat center center/cover;
+    url('../../../assets/images/login_cover.jpg') no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -130,7 +130,7 @@ input.ng-invalid.ng-touched {
 .loader:after {
   position: absolute;
   top: 0;
-  content: "";
+  content: '';
 }
 .loader:before {
   left: -1.5em;
