@@ -16,10 +16,7 @@ export class CardComponent implements OnInit, OnDestroy {
   private userSubscription: Subscription;
   isAuthenticated = false;
 
-  constructor(
-    private wishlistService: WishlistService,
-    private authService: AuthService
-  ) {}
+  constructor(private wishlistService: WishlistService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.userSubscription = this.authService.user.subscribe((user) => {
@@ -28,9 +25,7 @@ export class CardComponent implements OnInit, OnDestroy {
   }
 
   onHeartClicked(clickedBook: Book) {
-    this.wishlistService
-      .addBooksToWishList(clickedBook)
-      .subscribe((_res) => (this.text = 'Successfully added'));
+    this.wishlistService.addBooksToWishList(clickedBook).subscribe((_res) => (this.text = 'Successfully added'));
     this.addedToFavorites = true;
   }
   ngOnDestroy() {

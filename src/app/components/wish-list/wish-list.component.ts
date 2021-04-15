@@ -22,9 +22,7 @@ export class WishListComponent implements OnInit {
   }
 
   removeBookFromArray(book: Book) {
-    this.booksWishList = this.booksWishList.filter(
-      (item) => item.id !== book.id
-    );
+    this.booksWishList = this.booksWishList.filter((item) => item.id !== book.id);
     this.wishlistService.removeBooksFromWishList(book);
   }
 }
