@@ -14,3 +14,6 @@
 a {
   margin: 0 0.5rem;
 }
+.active {
+  border-bottom: 2px solid #264e70;
+}
