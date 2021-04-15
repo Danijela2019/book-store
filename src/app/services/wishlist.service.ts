@@ -8,9 +8,10 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class WishlistService {
+  booksArray: Book[] = [];
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  fetchWishLit() {
+  fetchWishList() {
     return this.authService.user.pipe(
       take(1),
       exhaustMap((user) => {
@@ -61,6 +62,6 @@ export class WishlistService {
           );
         })
       )
-      .subscribe((_res) => console.log(_res));
+      .subscribe();
   }
 }

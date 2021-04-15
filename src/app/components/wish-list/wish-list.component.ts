@@ -15,7 +15,7 @@ export class WishListComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.wishlistService.fetchWishLit().subscribe((res) => {
+    this.wishlistService.fetchWishList().subscribe((res) => {
       this.isLoading = false;
       this.booksWishList = res;
     });
@@ -23,7 +23,7 @@ export class WishListComponent implements OnInit {
 
   removeBookFromArray(book: Book) {
     this.booksWishList = this.booksWishList.filter(
-      (item) => item.isbn13 !== book.isbn13
+      (item) => item.id !== book.id
     );
     this.wishlistService.removeBooksFromWishList(book);
   }
