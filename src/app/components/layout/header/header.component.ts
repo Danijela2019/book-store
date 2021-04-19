@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HeaderComponent implements OnInit, OnDestroy {
   private userSubscription: Subscription;
   isAuthenticated = false;
+  isActive = true;
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
@@ -20,6 +21,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onLogout() {
     this.authService.logout();
+  }
+
+  onMenuClick() {
+    this.isActive = !this.isActive;
   }
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe();
