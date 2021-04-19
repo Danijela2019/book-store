@@ -33,12 +33,11 @@
 
 .list-container {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   background-color: #f9b4ab;
 
   transition: 0.2s;
-  padding: 1rem;
 }
 .desktop {
   display: none;
@@ -47,6 +46,10 @@
 .mobile {
   text-transform: uppercase;
   flex-direction: column;
+  padding: 1rem;
+}
+.wishlist {
+  display: flex;
 }
 
 @media only screen and (min-width: 767px) {
@@ -64,5 +67,8 @@
   }
   .list-item {
     margin: 0 0.5rem;
+  }
+  .logo-button-container {
+    width: fit-content;
   }
 }

@@ -14,7 +14,9 @@
     <li class="list-item"><a *ngIf="isAuthenticated" routerLinkActive="active" (click)="onLogout()">Logout</a></li>
     <li class="list-item"><a *ngIf="!isAuthenticated" routerLinkActive="active" routerLink="/auth">Login</a></li>
     <li class="list-item">
-      <a *ngIf="isAuthenticated" routerLinkActive="active" routerLink="/wishlist">Wish list</a>
+      <a class="wishlist" *ngIf="isAuthenticated" routerLinkActive="active" routerLink="/wishlist"
+        >Wish list <span><mat-icon>favorite</mat-icon></span></a
+      >
     </li>
   </ul>
 </header>
