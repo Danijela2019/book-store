@@ -11,8 +11,12 @@
     <li class="list-item">
       <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/">Home</a>
     </li>
-    <li class="list-item"><a *ngIf="isAuthenticated" routerLinkActive="active" (click)="onLogout()">Logout</a></li>
-    <li class="list-item"><a *ngIf="!isAuthenticated" routerLinkActive="active" routerLink="/auth">Login</a></li>
+    <li class="list-item">
+      <a *ngIf="isAuthenticated; else login" routerLinkActive="active" (click)="onLogout()">Logout</a>
+    </li>
+    <ng-template #login>
+      <li class="list-item"><a routerLinkActive="active" routerLink="/auth">Login</a></li>
+    </ng-template>
     <li class="list-item">
       <a class="wishlist" *ngIf="isAuthenticated" routerLinkActive="active" routerLink="/wishlist"
         >Wish list <span><mat-icon>favorite</mat-icon></span></a
