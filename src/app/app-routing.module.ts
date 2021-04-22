@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './components/auth/auth.component';
 import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
 import { AuthGardService } from './services/auth-gard.service';
 
@@ -13,6 +14,7 @@ const routes: Routes = [
     canActivate: [AuthGardService],
   },
   { path: 'auth', component: AuthComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
