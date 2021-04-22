@@ -13,6 +13,7 @@ import { AuthComponent } from './components/auth/auth.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
 import { WishListItemComponent } from './components/wish-list/wish-list-item/wish-list-item.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
     WishListComponent,
     WishListItemComponent,
     FooterComponent,
+    NotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MatIconModule],
   providers: [],
