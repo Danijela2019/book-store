@@ -48,10 +48,27 @@
   flex-direction: column;
   padding: 1rem;
 }
-.wishlist {
+.wishlist-anchor {
   display: flex;
 }
-
+.wishlist {
+  display: flex;
+  position: relative;
+}
+.wishlist-items-container {
+  position: absolute;
+  display: flex;
+  width: 11px;
+  color: whitesmoke;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  top: 5px;
+  left: 6px;
+}
+.wishlist-number {
+  font-size: 0.5rem;
+}
 @media only screen and (min-width: 767px) {
   .header {
     flex-direction: row;
