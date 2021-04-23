@@ -18,9 +18,15 @@
       <li class="list-item"><a routerLinkActive="active" routerLink="/auth">Login</a></li>
     </ng-template>
     <li class="list-item">
-      <a class="wishlist" *ngIf="isAuthenticated" routerLinkActive="active" routerLink="/wishlist"
-        >Wish list <span><mat-icon>favorite</mat-icon></span></a
-      >
+      <a class="wishlist-anchor" *ngIf="isAuthenticated" routerLinkActive="active" routerLink="/wishlist"
+        >Wish list
+        <span class="wishlist"
+          ><mat-icon>favorite</mat-icon>
+          <span class="wishlist-items-container">
+            <span *ngIf="wishlistArray.length > 0" class="wishlist-number">{{ wishlistArray.length }}</span>
+          </span>
+        </span>
+      </a>
     </li>
   </ul>
 </header>

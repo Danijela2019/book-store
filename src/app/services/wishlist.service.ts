@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Book } from '../models/Book';
 import { exhaustMap, map, take } from 'rxjs/operators';
 import { AuthService } from './auth.service';
@@ -9,6 +9,9 @@ import { AuthService } from './auth.service';
 })
 export class WishlistService {
   booksArray: Book[] = [];
+  onAddedToFavorites = new EventEmitter<number>();
+  onRemovedFromFavorites = new EventEmitter<number>();
+
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   fetchWishList() {
