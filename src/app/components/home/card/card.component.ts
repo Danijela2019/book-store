@@ -28,7 +28,7 @@ export class CardComponent implements OnInit, OnDestroy {
   onHeartClicked(clickedBook: Book) {
     this.wishlistService.addBooksToWishList(clickedBook).subscribe((_res) => (this.text = 'Successfully added'));
     this.addedToFavorites = true;
-    this.wishlistService.onAddedToFavorites.emit(1);
+    this.wishlistService.onAddedToFavorites.next(clickedBook);
   }
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
