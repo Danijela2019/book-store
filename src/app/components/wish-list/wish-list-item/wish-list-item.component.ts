@@ -17,6 +17,5 @@ export class WishListItemComponent implements OnInit {
 
   onRemoveBook(item: Book) {
     this.deleteBook.emit(item);
-    this.wishlistService.onRemovedFromFavorites.emit(1);
   }
 }
