@@ -6,6 +6,7 @@ export class Book {
     public image: string,
     public price: string,
     public url: string,
+    public favorites: boolean,
     public id?: string
   ) {}
 }
