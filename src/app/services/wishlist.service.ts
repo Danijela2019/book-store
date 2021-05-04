@@ -17,6 +17,7 @@ export class WishlistService {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   fetchWishList() {
+    if (!this.authService.user.value) return;
     this.authService.user
       .pipe(
         take(1),
