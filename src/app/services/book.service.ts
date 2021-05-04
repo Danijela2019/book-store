@@ -1,15 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/Book';
-import { BESTSELLERS } from '../data/Bestsellers';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
   bestsellersArray: Book[];
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getAllBooks() {
-    return (this.bestsellersArray = BESTSELLERS);
+    return this.http.get<Book[]>('https://bookstore-65f65-default-rtdb.firebaseio.com/bestsellers.json').pipe(
+      map((responseData) => {
+        const booksArray = [];
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            booksArray.push({ ...responseData[key], id: key });
+          }
+        }
+        return booksArray;
+      })
+    );
   }
 }
