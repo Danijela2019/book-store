@@ -3,13 +3,8 @@
     <img src="{{ book.image }}" alt="{{ book.title }}" class="card-image" />
   </div>
   <p class="card-book-title">{{ book.title }}</p>
-  <p class="success">{{ text }}</p>
-  <button
-    *ngIf="isAuthenticated"
-    class="card-button"
-    (click)="onHeartClicked(book)"
-    [disabled]="addedToFavorites"
-  >
+
+  <button [@fade]="state" *ngIf="isAuthenticated" class="card-button" (click)="onHeartClicked(book)">
     <mat-icon>favorite</mat-icon>
   </button>
 </li>

@@ -14,6 +14,7 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
 import { WishListItemComponent } from './components/wish-list/wish-list-item/wish-list-item.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     FooterComponent,
     NotFoundComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MatIconModule],
+
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, MatIconModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
