@@ -4,6 +4,8 @@ A book store app generated with Angular and Firebase for data storage.The book d
 
 ![Hero page](hero_page.png)
 
+## Live demo available [here](https://bookstore-65f65.web.app)
+
 ## Functionalities
 
 - **all bestselling books are displayed for the user**
